@@ -1,6 +1,7 @@
-from pydantic import BaseModel
+from pyservice.domain.entities.base_entity import BaseEntity
 
-class Score(BaseModel):
+
+class Score(BaseEntity):
     name: str
     math_score: int
     english_score: int
