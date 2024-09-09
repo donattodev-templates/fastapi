@@ -1,12 +1,7 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
+from pyservice.domain.entities.score import Score
 
 router = APIRouter()
-
-class Score(BaseModel):
-    name: str
-    math_score: int
-    english_score: int
 
 @router.post("/submit-score")
 def submit_score(score: Score):
