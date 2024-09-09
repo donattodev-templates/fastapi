@@ -1,2 +1,2 @@
-# pyservice
-Python FastAPI template for microservices
+# PyService
+Python FastAPI template for microservices - internal use only
