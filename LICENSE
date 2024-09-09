@@ -1,28 +1,41 @@
-BSD 3-Clause License
+Mech Robotics Proprietary Software License
 
-Copyright (c) 2024, Mech Robotics
+1. Grant of License:
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
+Mech Robotics grants you a non-exclusive, non-transferable, limited license to use the software solely for internal business purposes within Mech Robotics projects.
 
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+2. Restrictions:
 
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
+You may not:
 
-3. Neither the name of the copyright holder nor the names of its
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+- Copy the software, except for backup purposes.
+- Modify, adapt, translate, or create derivative works based on the software.
+- Decompile, reverse engineer, or disassemble the software.
+- Sublicense, lease, rent, or distribute the software to any third party.
+- Use the software for any commercial purpose outside of Mech Robotics' internal business operations.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+3. Mech Robotics' Rights:
+
+Mech Robotics retains all rights, title, and interest in and to the software, including all intellectual property rights.
+
+4. Termination:
+
+This license will terminate automatically if you breach any of its terms. Mech Robotics may also terminate this license at any time for any reason.
+
+5. No Warranty:
+
+The software is provided "as is" without warranty of any kind, either express or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose.   
+
+6. Limitation of Liability:
+
+In no event shall Mech Robotics be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or any other pecuniary loss) arising out of the use of or inability to use the software, even if Mech Robotics has been advised of the possibility of such damages.   
+
+7. Written Permission:
+
+Any use of the software beyond the scope of this license requires prior written and signed permission from Mech Robotics.
+
+8. Governing Law:
+
+This license shall be governed by and construed in accordance with the laws of [Jurisdiction where Mech Robotics is located].
+
+By using the software, you agree to be bound by the terms of this license.
