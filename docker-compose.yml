@@ -1,0 +1,46 @@
+services:
+  redis:
+    container_name: redis
+    image: redis:alpine3.20
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=1
+    networks:
+      - pyservice-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'  # Limit to 1/4 of a CPU
+          memory: 256m  # Limit to 256MB of RAM
+        reservations:
+          cpus: '0.1'   # Guarantee at least 1/10 of a CPU
+          memory: 128m  # Guarantee at least 128MB of RAM
+
+  postgres:
+    container_name: postgres
+    image: postgres:12.20-alpine3.20
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    networks:
+      - pyservice-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'   # Limit to 1.5 CPUs
+          memory: 12g   # Limit to 12GB of RAM
+        reservations:
+          cpus: '1'     # Guarantee at least 1 CPU
+          memory: 8g    # Guarantee at least 8GB of RAM
+
+networks:
+  pyservice-network:
+    name: pyservice-network
