@@ -1,10 +1,10 @@
 from fastapi import FastAPI
-from pyservice.api.routes.submit_scores import router
-from pyservice.infrastructure.adapters.postgres_adapter import engine, Base
+from pyservice.api.routes.score_router import router
+from pyservice.infrastructure.mapping.score_table import create_score_table
 
 def bootstrap_database():
     """Creates database tables schematics if they don't exist at application startup."""
-    Base.metadata.create_all(bind=engine)
+    create_score_table()
 
 def bootstrap_application() -> FastAPI:
     boot = FastAPI(title="PyService Template", description="This is a internal template for fastapi microservices")
