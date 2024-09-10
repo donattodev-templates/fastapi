@@ -13,6 +13,7 @@ router = APIRouter(
     tags=['Scores']
 )
 
+# TODO: Implements a complete CRUD
 
 @router.post("/submit-score")
 async def post_score(score: Score, db: Session = Depends(get_db)):
