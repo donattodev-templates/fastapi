@@ -6,7 +6,7 @@ from pyservice.infrastructure.repositories.add_score_repository import add_score
 router = APIRouter()
 
 @router.post("/submit-score")
-def submit_score(score: Score):
+async def submit_score(score: Score):
     try:
         return add_score_repository(score.name, score.math_score, score.english_score)
     except Exception as ex:

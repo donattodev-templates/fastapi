@@ -19,7 +19,7 @@ Python FastAPI template for microservices - internal use only
      POSTGRES_DB=your_postgres_database_name
      REDIS_PASSWORD=your_redis_password
      ```
-
+    * Replace the connection string in the adapter postgres_adapter.py
 3. **Start Docker Containers**
 
    * Open your terminal and navigate to the root directory.
