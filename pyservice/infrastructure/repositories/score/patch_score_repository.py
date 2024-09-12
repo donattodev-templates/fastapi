@@ -11,18 +11,17 @@ def patch_score_repository(db, score_id: UUID, name: str, math_score: int, engli
             row = db.query(ScoreModel).filter(ScoreModel.id == score_id).first()
 
             if row.name != name:
-                query = (update(ScoreModel).where(ScoreModel.id == score_id)
-                                           .values({'name': name}))
+                query = (update(ScoreModel).where(ScoreModel.id == score_id).values({'name': name}))
+                db.execute(query)
 
             if row.math_score != math_score:
-                query = (update(ScoreModel).where(ScoreModel.id == score_id)
-                                           .values({'math_score': math_score}))
+                query = (update(ScoreModel).where(ScoreModel.id == score_id).values({'math_score': math_score}))
+                db.execute(query)
 
             if row.english_score != english_score:
-                query = (update(ScoreModel).where(ScoreModel.id == score_id)
-                                           .values({'english_score': english_score}))
+                query = (update(ScoreModel).where(ScoreModel.id == score_id).values({'english_score': english_score}))
+                db.execute(query)
 
-            db.execute(query)
             db.commit()
             session.commit()
 

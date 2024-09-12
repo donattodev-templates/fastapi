@@ -8,6 +8,7 @@ from pyservice.infrastructure.repositories.score.add_score_repository import add
 from pyservice.infrastructure.repositories.score.get_all_score_repository import get_all_score_repository
 from pyservice.infrastructure.repositories.score.get_score_repository import get_score_repository
 from pyservice.infrastructure.repositories.score.patch_score_repository import patch_score_repository
+from pyservice.infrastructure.repositories.score.put_score_repository import put_score_repository
 
 # TODO: Implements a complete CRUD
 
@@ -45,12 +46,12 @@ async def post_score(score: Score, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=f"Error: {ex}")
 
 
-# @router.put("/replace-score")
-# async def put_score(score: Score, db: Session = Depends(get_db)):
-#     try:
-#         return put_score_repository(db, score.name, score.math_score, score.english_score)
-#     except Exception as ex:
-#         raise HTTPException(status_code=500, detail=f"Error: {ex}")
+@router.put("/replace-score/{score_id}")
+async def put_score(score_id: UUID, score: Score, db: Session = Depends(get_db)):
+    try:
+        return put_score_repository(db, score_id, score.name, score.math_score, score.english_score)
+    except Exception as ex:
+        raise HTTPException(status_code=500, detail=f"Error: {ex}")
 
 
 @router.patch("/update-score/{score_id}")
