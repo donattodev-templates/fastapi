@@ -5,6 +5,7 @@ from fastapi import APIRouter, HTTPException, Depends
 from pyservice.domain.entities.score import Score
 from pyservice.infrastructure.adapters.postgres_adapter import get_db
 from pyservice.infrastructure.repositories.score.add_score_repository import add_score_repository
+from pyservice.infrastructure.repositories.score.delete_score_repository import delete_score_repository
 from pyservice.infrastructure.repositories.score.get_all_score_repository import get_all_score_repository
 from pyservice.infrastructure.repositories.score.get_score_repository import get_score_repository
 from pyservice.infrastructure.repositories.score.patch_score_repository import patch_score_repository
@@ -58,5 +59,13 @@ async def put_score(score_id: UUID, score: Score, db: Session = Depends(get_db))
 async def patch_score(score_id: UUID, score: Score, db: Session = Depends(get_db)):
     try:
         return patch_score_repository(db, score_id, score.name, score.math_score, score.english_score)
+    except Exception as ex:
+        raise HTTPException(status_code=500, detail=f"Error: {ex}")
+
+
+@router.delete("/delete-score/{score_id}")
+async def patch_score(score_id: UUID, db: Session = Depends(get_db)):
+    try:
+        return delete_score_repository(db, score_id)
     except Exception as ex:
         raise HTTPException(status_code=500, detail=f"Error: {ex}")
