@@ -1,7 +1,6 @@
 from uuid import UUID
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, HTTPException, Depends
-
 from pyservice.domain.entities.score import Score
 from pyservice.infrastructure.adapters.postgres_adapter import get_db
 from pyservice.infrastructure.repositories.score.add_score_repository import add_score_repository
@@ -10,8 +9,6 @@ from pyservice.infrastructure.repositories.score.get_all_score_repository import
 from pyservice.infrastructure.repositories.score.get_score_repository import get_score_repository
 from pyservice.infrastructure.repositories.score.patch_score_repository import patch_score_repository
 from pyservice.infrastructure.repositories.score.put_score_repository import put_score_repository
-
-# TODO: Implements a complete CRUD
 
 
 router = APIRouter(
