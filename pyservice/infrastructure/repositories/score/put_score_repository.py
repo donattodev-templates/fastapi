@@ -17,7 +17,7 @@ def put_score_repository(db, score_id: UUID, name: str, math_score: int, english
                 'english_score': english_score
             }
 
-            query = update(ScoreModel).where(row.id == score_id).values(update_data)
+            query = update(ScoreModel).where(ScoreModel.id == score_id).values(update_data)
 
             db.execute(query)
             db.commit()
