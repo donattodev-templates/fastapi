@@ -8,9 +8,6 @@ from logging import exception
 def put_score_repository(db, score_id: UUID, name: str, math_score: int, english_score: int):
     with Session(db) as session:
         try:
-
-            row = db.query(ScoreModel).filter(ScoreModel.id == score_id).first()
-
             update_data = {
                 'name': name,
                 'math_score': math_score,
