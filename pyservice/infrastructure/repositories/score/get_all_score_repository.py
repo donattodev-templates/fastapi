@@ -1,14 +1,13 @@
-from uuid import UUID
+from logging import exception
 from sqlalchemy.orm import Session
 from pyservice.infrastructure.models.score_model import ScoreModel
 
 
 def get_all_score_repository(db: Session):
-    score = db.query(ScoreModel).all()
+    try:
+        score = db.query(ScoreModel).all()
+        return score
 
-    # TODO: Search for the best way to handle exceptions here
-
-    if score is None:
-        return None  # Or raise an exception, depending on your error handling strategy
-
-    return score
+    except Exception as ex:
+        # TODO: Log the errors to OpenTelemetry
+        exception(f"Error: {ex}")

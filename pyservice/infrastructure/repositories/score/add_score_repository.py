@@ -1,18 +1,27 @@
 from uuid import uuid4
+from logging import exception
+from sqlalchemy.orm import Session
 from pyservice.infrastructure.models.score_model import ScoreModel
 
+
 def add_score_repository(db, name: str, math_score: int, english_score: int):
-    new_score = ScoreModel(
-        id=uuid4(),
-        name=name,
-        math_score=math_score,
-        english_score=english_score
-    )
+    with Session(db) as session:
+        try:
+            row = ScoreModel(
+                id=uuid4(),
+                name=name,
+                math_score=math_score,
+                english_score=english_score
+            )
 
-    db.add(new_score)
-    db.commit()
-    db.refresh(new_score)
+            db.add(row)
+            db.commit()
+            db.refresh(row)
 
-    return new_score
+            session.commit()
+            return {"Message": "Score created successfully!"}
 
-# Test: curl -X POST "http://127.0.0.1:8000/scores/submit-score" -H "Content-type: application/json" -d '{"name": "John Doe", "math_score": 95, "english_score": 88}'
+        except Exception as ex:
+            session.rollback()
+            # TODO: Log the errors to OpenTelemetry
+            exception(f"Error: {ex}")
