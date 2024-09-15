@@ -10,9 +10,19 @@ config = get_config()
 environment = getenv('ENVIRONMENT', 'development')
 
 if environment == 'production':
-    SQLALCHEMY_DATABASE_URL = config['application']['database']['connection_strings']['production']
+    SQLALCHEMY_DATABASE_URL = config['application'] \
+                                    ['infrastructure'] \
+                                    ['databases'] \
+                                    ['postgres'] \
+                                    ['connection_strings'] \
+                                    ['production']
 else:
-    SQLALCHEMY_DATABASE_URL = config['application']['database']['connection_strings']['development']
+    SQLALCHEMY_DATABASE_URL = config['application'] \
+                                    ['infrastructure'] \
+                                    ['databases'] \
+                                    ['postgres'] \
+                                    ['connection_strings'] \
+                                    ['development']
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

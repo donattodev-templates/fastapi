@@ -1,7 +1,19 @@
 application:
-  database:
-    connection_strings:
-      production: 'postgresql://d5uRf3S76W98prJF4cCKqw:P2uADnKtBYVkNpjZ68drFS@localhost/pyservice-db'
-      development: 'postgresql://d5uRf3S76W98prJF4cCKqw:P2uADnKtBYVkNpjZ68drFS@localhost/pyservice-db'
   api:
     routers_path: "./routes"
+  infrastructure:
+    databases:
+      postgres:
+        connection_strings:
+          production: 'postgresql://d5uRf3S76W98prJF4cCKqw:P2uADnKtBYVkNpjZ68drFS@localhost/pyservice-db'
+          development: 'postgresql://d5uRf3S76W98prJF4cCKqw:P2uADnKtBYVkNpjZ68drFS@localhost/pyservice-db'
+      redis:
+        connection_strings:
+          production:
+            - host: localhost
+            - port: 6379
+            - decode_responses: True
+          development:
+            - host: localhost
+            - port: 6379
+            - decode_responses: True
