@@ -7,23 +7,18 @@ Value objects
 Domain services
 Aggregates
 
-
 Use Cases / Application Services:
 
 These orchestrate the flow of data to and from the domain entities and implement business rules
-
 
 Port Interfaces:
 
 Both primary (driving) and secondary (driven) port interfaces
 
-
 Adapters:
 
 Primary adapters (e.g., REST controllers, CLI interfaces)
 Secondary adapters (e.g., database repositories, external service clients)
-
-
 
 The core idea is to test each component in isolation, ensuring that the business logic is correct and that the components interact properly through well-defined interfaces.
 Here's a more detailed explanation of what to focus on for each component:
