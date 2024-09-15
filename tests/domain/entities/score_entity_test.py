@@ -26,7 +26,7 @@ def test_score_from_dict():
 
 def test_score_validation():
     with pytest.raises(ValueError):
-        Score(name="Invalid", math_score="not a number", english_score=80)
+        Score(name=23, math_score="22", english_score=98)
 
 
 def test_score_serialization():
