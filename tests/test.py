@@ -1,5 +1,6 @@
 import sys
-from os import path
+import multiprocessing
+from os import path, cpu_count
 from domain.entities.base_entity_test import test_base_entity_id_generation, test_base_entity_id_uniqueness
 from domain.entities.score_entity_test import test_score_creation, test_score_from_dict, test_score_validation, \
     test_score_serialization
@@ -18,14 +19,19 @@ def run_test(test_func):
 
 
 if __name__ == '__main__':
-    tests = [
-        test_base_entity_id_generation,
-        test_base_entity_id_uniqueness,
-        test_score_creation,
-        test_score_from_dict,
-        test_score_validation,
-        test_score_serialization
-    ]
+    num_processes = cpu_count()
 
-    for test in tests:
-        run_test(test)
+    with multiprocessing.Pool(processes=num_processes) as pool:
+        tests = [
+            test_base_entity_id_generation,
+            test_base_entity_id_uniqueness,
+            test_score_creation,
+            test_score_from_dict,
+            test_score_validation,
+            test_score_serialization
+        ]
+
+        results = pool.map(run_test, tests)
+
+        for test in tests:
+            run_test(test)
