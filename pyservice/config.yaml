@@ -3,3 +3,5 @@ application:
     connection_strings:
       production: 'postgresql://d5uRf3S76W98prJF4cCKqw:P2uADnKtBYVkNpjZ68drFS@localhost/pyservice-db'
       development: 'postgresql://d5uRf3S76W98prJF4cCKqw:P2uADnKtBYVkNpjZ68drFS@localhost/pyservice-db'
+  api:
+    routers_path: "./routes"
