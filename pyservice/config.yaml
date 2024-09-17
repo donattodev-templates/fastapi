@@ -1,6 +1,9 @@
 application:
   api:
-    routers_path: "./routes"
+    routers_path: "../routes"
+    service_switcher:
+      redis: false
+      postgres: true
   infrastructure:
     databases:
       postgres:

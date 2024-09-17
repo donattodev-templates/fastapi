@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from logging import basicConfig, INFO
-from pyservice.api.builder import collect_and_include_routers
+from pyservice.api.utils.builder import collect_and_include_routers
+from pyservice.api.utils.service_switcher import ServiceSwitcher
 from pyservice.infrastructure.mapping.score_table import create_score_table
 
 
@@ -22,4 +23,5 @@ def bootstrap_application() -> FastAPI:
 
 
 app = bootstrap_application()
+services = ServiceSwitcher.get_services()
 bootstrap_database()
