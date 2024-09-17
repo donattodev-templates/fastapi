@@ -1,8 +1,8 @@
 import sys
 import multiprocessing
 from os import path, cpu_count
-from domain.entities.base_entity_test import test_base_entity_id_generation, test_base_entity_id_uniqueness
-from domain.entities.score_entity_test import test_score_creation, test_score_from_dict, test_score_validation, \
+from domain.entities.base_entity import test_base_entity_id_generation, test_base_entity_id_uniqueness
+from domain.entities.score_entity import test_score_creation, test_score_from_dict, test_score_validation, \
     test_score_serialization
 
 sys.path.insert(0, path.dirname(path.dirname(path.abspath(__file__))))

@@ -17,7 +17,7 @@ if environment == 'production':
                                     ['connection_strings'] \
                                     ['production']
 else:
-    SQLALCHEMY_DATABASE_URL = config['application'] \
+    SQLALCHEMY_DATABASE_URL = config['application']\
                                     ['infrastructure'] \
                                     ['databases'] \
                                     ['postgres'] \

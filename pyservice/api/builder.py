@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from importlib import import_module
-from os import scandir, path, chdir
 from logging import error, warning
+from os import scandir, path, chdir
+from importlib import import_module
 from pyservice.config import get_config
 
 
