@@ -1,13 +1,11 @@
 from fastapi import FastAPI
 from logging import basicConfig, INFO
 from pyservice.api.utils.builder import collect_and_include_routers
-from pyservice.api.utils.service_switcher import ServiceSwitcher
-from pyservice.infrastructure.mapping.score_table import create_score_table
+from pyservice.api.utils.service_bootstrapper import ServiceBootstrapper
+from pyservice.api.utils.services import Services
 
 
-def bootstrap_database() -> None:
-    """Creates database tables schematics if they don't exist at application startup."""
-    create_score_table()
+# from pyservice.api.utils.services import bootstrap_database
 
 
 def bootstrap_application() -> FastAPI:
@@ -21,7 +19,12 @@ def bootstrap_application() -> FastAPI:
 
     return boot
 
+services = Services()
+bootstrapper = ServiceBootstrapper(services.services)
 
+bootstrapper.register("postgres", Services.bootstrap_database)
+# bootstrapper.register("redis", Services.bootstrap_redis)
+# bootstrapper.register("rabbitmq", Services.bootstrap_rabbitmq)
+
+bootstrapper.bootstrap_all()
 app = bootstrap_application()
-services = ServiceSwitcher.get_services()
-bootstrap_database()
