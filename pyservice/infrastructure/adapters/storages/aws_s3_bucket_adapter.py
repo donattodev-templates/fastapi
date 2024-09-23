@@ -1,0 +1,1 @@
+# TODO: Implements a adapter to CRUD the AWS s3 bucket

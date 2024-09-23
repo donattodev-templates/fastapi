@@ -44,19 +44,19 @@ def get_score_repository(db: Session, score_id: UUID):
 ```python
 from uuid import UUID
 from sqlalchemy.orm import Session
-from pyservice.infrastructure.adapters.postgres_adapter import get_db
+from pyservice.infrastructure.adapters.databases.postgres_adapter import get_db
 
 db = next(get_db())
 score_id = UUID('123e4567-e89b-12d3-a456-426614174000')  # Example UUID
 
 try:
-    score = get_score_repository(db, score_id)
-    if score:
-        print(f"ID: {score.id}, Name: {score.name}, Math: {score.math_score}, English: {score.english_score}")
-    else:
-        print("Score not found")
+  score = get_score_repository(db, score_id)
+  if score:
+    print(f"ID: {score.id}, Name: {score.name}, Math: {score.math_score}, English: {score.english_score}")
+  else:
+    print("Score not found")
 except Exception as e:
-    print(f"Failed to retrieve score: {str(e)}")
+  print(f"Failed to retrieve score: {str(e)}")
 ```
 
 ## Notes

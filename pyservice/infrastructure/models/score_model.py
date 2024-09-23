@@ -1,4 +1,4 @@
-from pyservice.infrastructure.adapters.postgres_adapter import Base
+from pyservice.infrastructure.adapters.databases.postgres_adapter import Base
 from sqlalchemy import Column, UUID, String, Integer
 
 class ScoreModel(Base):

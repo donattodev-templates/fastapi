@@ -51,16 +51,16 @@ def delete_score_repository(db, score_id: UUID):
 ```python
 from uuid import UUID
 from sqlalchemy.orm import Session
-from pyservice.infrastructure.adapters.postgres_adapter import get_db
+from pyservice.infrastructure.adapters.databases.postgres_adapter import get_db
 
 db = next(get_db())
 score_id = UUID('123e4567-e89b-12d3-a456-426614174000')  # Example UUID
 
 try:
-    result = delete_score_repository(db, score_id)
-    print(result)  # Output: {"Message": "Deleted successfully!"}
+  result = delete_score_repository(db, score_id)
+  print(result)  # Output: {"Message": "Deleted successfully!"}
 except Exception as e:
-    print(f"Failed to delete score: {str(e)}")
+  print(f"Failed to delete score: {str(e)}")
 ```
 
 ## Notes

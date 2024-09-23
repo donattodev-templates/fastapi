@@ -56,16 +56,16 @@ def put_score_repository(db, score_id: UUID, name: str, math_score: int, english
 ```python
 from uuid import UUID
 from sqlalchemy.orm import Session
-from pyservice.infrastructure.adapters.postgres_adapter import get_db
+from pyservice.infrastructure.adapters.databases.postgres_adapter import get_db
 
 db = next(get_db())
 score_id = UUID('123e4567-e89b-12d3-a456-426614174000')  # Example UUID
 
 try:
-    result = put_score_repository(db, score_id, "Jane Doe", 95, 88)
-    print(result)  # Output: {"Message": "Updated successfully!"}
+  result = put_score_repository(db, score_id, "Jane Doe", 95, 88)
+  print(result)  # Output: {"Message": "Updated successfully!"}
 except Exception as e:
-    print(f"Failed to update score: {str(e)}")
+  print(f"Failed to update score: {str(e)}")
 ```
 
 ## Notes

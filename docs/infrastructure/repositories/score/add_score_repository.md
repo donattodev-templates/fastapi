@@ -52,14 +52,14 @@ def add_score_repository(db, name: str, math_score: int, english_score: int):
 
 ```python
 from sqlalchemy.orm import Session
-from pyservice.infrastructure.adapters.postgres_adapter import get_db
+from pyservice.infrastructure.adapters.databases.postgres_adapter import get_db
 
 db = next(get_db())
 try:
-    result = add_score_repository(db, "John Doe", 85, 90)
-    print(result)  # Output: {"Message": "Score created successfully!"}
+  result = add_score_repository(db, "John Doe", 85, 90)
+  print(result)  # Output: {"Message": "Score created successfully!"}
 except Exception as e:
-    print(f"Failed to add score: {str(e)}")
+  print(f"Failed to add score: {str(e)}")
 ```
 
 ## Notes

@@ -1,0 +1,1 @@
+# TODO: Implements a adapter to access redis

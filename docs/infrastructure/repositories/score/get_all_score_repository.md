@@ -40,16 +40,16 @@ def get_all_score_repository(db: Session):
 
 ```python
 from sqlalchemy.orm import Session
-from pyservice.infrastructure.adapters.postgres_adapter import get_db
+from pyservice.infrastructure.adapters.databases.postgres_adapter import get_db
 
 db = next(get_db())
 
 try:
-    all_scores = get_all_score_repository(db)
-    for score in all_scores:
-        print(f"ID: {score.id}, Name: {score.name}, Math: {score.math_score}, English: {score.english_score}")
+  all_scores = get_all_score_repository(db)
+  for score in all_scores:
+    print(f"ID: {score.id}, Name: {score.name}, Math: {score.math_score}, English: {score.english_score}")
 except Exception as e:
-    print(f"Failed to retrieve scores: {str(e)}")
+  print(f"Failed to retrieve scores: {str(e)}")
 ```
 
 ## Notes

@@ -1,5 +1,5 @@
 from sqlalchemy import Table, Column, Integer, String, MetaData
-from pyservice.infrastructure.adapters.postgres_adapter import engine
+from pyservice.infrastructure.adapters.databases.postgres_adapter import engine
 from sqlalchemy.dialects.postgresql import UUID
 
 def create_score_table():
@@ -15,3 +15,5 @@ def create_score_table():
     )
 
     metadata.create_all(engine)
+
+# TODO: Try to eliminate the necessity of mapping by automatically loading the assembly

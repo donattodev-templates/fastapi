@@ -2,7 +2,7 @@ from uuid import UUID
 from sqlalchemy.orm import Session
 from pyservice.domain.entities.score import Score
 from fastapi import APIRouter, HTTPException, Depends
-from pyservice.infrastructure.adapters.postgres_adapter import get_db
+from pyservice.infrastructure.adapters.databases.postgres_adapter import get_db
 from pyservice.infrastructure.repositories.score.add_score_repository import add_score_repository
 from pyservice.infrastructure.repositories.score.delete_score_repository import delete_score_repository
 from pyservice.infrastructure.repositories.score.get_all_score_repository import get_all_score_repository
